@@ -16,6 +16,8 @@ import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GreetingsTest {
+	private static final String SERVER = "Tomcat 9.0.41";
+	private static final int EXPECTED_LINES = 9;
 
 	@Mock
 	private PrintWriter writer;
@@ -23,15 +25,15 @@ public class GreetingsTest {
 	@Captor
 	private ArgumentCaptor<String> captor;
 
-	private final Greetings greetings = new Greetings();
+	private final Greetings greetings = new Greetings(SERVER);
 
 	@Test
 	public void printGreetingsTest() {
 		greetings.printGreetings(writer);
 
-		verify(writer, times(7)).println(captor.capture());
+		verify(writer, times(EXPECTED_LINES)).println(captor.capture());
 
-		assertEquals(7, captor.getAllValues().size());
+		assertEquals("Expected greetings with 9 lines of HTML", EXPECTED_LINES, captor.getAllValues().size());
 		assertNotNull(captor.getAllValues().get(3));
 		assertEquals("<B> Application version: 1.0</B><BR/>", captor.getAllValues().get(3));
 	}

@@ -8,7 +8,7 @@ import java.io.IOException;
 public class DemoServlet extends HttpServlet {
 	private static final String CONTENT_TYPE = "text/html";
 
-	private final Greetings greetings = new Greetings();
+	private final Greetings greetings = new Greetings(getServletContext().getServerInfo());
 
 	@Override
 	protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws IOException {

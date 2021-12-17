@@ -7,18 +7,12 @@ import java.time.format.DateTimeFormatter;
 public class Greetings {
 	private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
 
-	private final String serverInfo;
-
-	public Greetings(final String serverInfo) {
-		this.serverInfo = serverInfo;
-	}
-
-	public void printGreetings(final PrintWriter writer) {
+	public void printGreetings(final PrintWriter writer, final String serverInfo) {
 		try {
 			writer.println("<html><body>");
 
 			writer.println("<BR/><BR/><BR/><center><H1><B> *** Welcome to Jan Demo *** </B></H1></center><BR/><BR/>");
-			printInfo(writer);
+			printInfo(writer, serverInfo);
 
 			writer.println("</body></html>");
 		} finally {
@@ -26,7 +20,7 @@ public class Greetings {
 		}
 	}
 
-	private void printInfo(final PrintWriter writer) {
+	private void printInfo(final PrintWriter writer, final String serverInfo) {
 		writer.println("<B> " + LocalDateTime.now().format(DATE_FORMAT) + "</B><BR/>");
 		writer.println("<B> Application version: " + Config.getVersion() + "</B><BR/>");
 		writer.println("<B> Server: " + serverInfo + "</B><BR/>");

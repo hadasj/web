@@ -25,11 +25,11 @@ public class GreetingsTest {
 	@Captor
 	private ArgumentCaptor<String> captor;
 
-	private final Greetings greetings = new Greetings(SERVER);
+	private final Greetings greetings = new Greetings();
 
 	@Test
 	public void printGreetingsTest() {
-		greetings.printGreetings(writer);
+		greetings.printGreetings(writer, SERVER);
 
 		verify(writer, times(EXPECTED_LINES)).println(captor.capture());
 

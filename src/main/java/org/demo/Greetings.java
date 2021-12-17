@@ -25,7 +25,8 @@ public class Greetings {
 		writer.println("<B> Application version: " + Config.getVersion() + "</B><BR/>");
 		writer.println("<B> Server: " + serverInfo + "</B><BR/>");
 		writer.println("<B> Java version: " + System.getProperty("java.version") + "</B><BR/>");
-		writer.println("<B> Operation system: " + System.getProperty("os.name") + "</B><BR/>");
+		writer.println("<B> Operation system: " + System.getProperty("os.name")
+				+ " (" + System.getProperty("os.version") + ") </B><BR/>");
 		writer.println("<BR/>Implemented by jhadas.");
 	}
 }

@@ -1,3 +1,5 @@
 # ignore IDEA project files
 *.iml
 .idea
+#Ignore build classes
+target

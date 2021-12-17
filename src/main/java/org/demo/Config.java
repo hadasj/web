@@ -10,7 +10,7 @@ public class Config {
 	private static final Properties CONFIG_PROPERTIES = new Properties();
 	static {
 		try {
-			final InputStream configData = Config.class.getResourceAsStream(CONFIG_FILE_NAME);
+			final InputStream configData = Config.class.getClassLoader().getResourceAsStream(CONFIG_FILE_NAME);
 			if (configData != null) {
 				CONFIG_PROPERTIES.load(configData);
 			} else {

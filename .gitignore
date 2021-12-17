@@ -1,1 +1,3 @@
+# ignore IDEA project files
 *.iml
+.idea

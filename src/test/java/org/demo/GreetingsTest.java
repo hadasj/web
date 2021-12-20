@@ -34,6 +34,6 @@ public class GreetingsTest {
 
 		assertEquals("Expected greetings with 9 lines of HTML", EXPECTED_LINES, captor.getAllValues().size());
 		assertNotNull(captor.getAllValues().get(3));
-		assertEquals("<B> Application version: 1.1</B><BR/>", captor.getAllValues().get(3));
+		assertEquals("<B> Application version: 1.2</B><BR/>", captor.getAllValues().get(3));
 	}
 }

@@ -2,11 +2,14 @@ package org.demo;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.ZoneOffset;
 import java.util.Properties;
 
 public class Config {
 	private static final String CONFIG_FILE_NAME = "config.properties";
 	private static final String VERSION = "application.version";
+	private static final String TIME_ZONE = "time.zone";
+	private static final String DEFAULT_ZONE = ZoneOffset.UTC.getId();
 	private static final Properties CONFIG_PROPERTIES = new Properties();
 	static {
 		try {
@@ -23,5 +26,9 @@ public class Config {
 
 	public static String getVersion() {
 		return CONFIG_PROPERTIES.getProperty(VERSION);
+	}
+
+	public static String getTimeZone() {
+		return CONFIG_PROPERTIES.getProperty(TIME_ZONE, DEFAULT_ZONE);
 	}
 }

@@ -3,6 +3,7 @@ package org.demo;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -24,8 +25,11 @@ public class Greetings {
 	}
 
 	private void printInfo(final PrintWriter writer, final String serverInfo) {
-		final ZonedDateTime now = ZonedDateTime.of(LocalDateTime.now(), ZoneId.of(ZONE_CET));
-		writer.println("<B> " + now.format(DATE_FORMAT) + " </B><BR/>");
+		// server time is in UTC
+		final ZonedDateTime utcTime = ZonedDateTime.now();
+		// convert time to CET
+		final ZonedDateTime ceTime = utcTime.withZoneSameInstant(ZoneId.of(ZONE_CET));
+		writer.println("<B> " + ceTime.format(DATE_FORMAT) + " </B><BR/>");
 		writer.println("<B> Application version: " + Config.getVersion() + "</B><BR/>");
 		writer.println("<B> Server: " + serverInfo + "</B><BR/>");
 		writer.println("<B> Java version: " + System.getProperty("java.version") + "</B><BR/>");

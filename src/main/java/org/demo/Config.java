@@ -40,6 +40,6 @@ public class Config {
 	}
 
 	public static String getLocation() {
-		return System.getProperty(AZ_LOCATION);
+		return System.getenv(AZ_LOCATION);
 	}
 }

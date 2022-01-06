@@ -11,8 +11,10 @@ public class Config {
 	private static final String TIME_ZONE = "time.zone";
 	private static final String USER = "default.user";
 	private static final String AZ_LOCATION = "AZ_Location";
+	private static final String APP_NAME = "APP_name";
 	private static final String DEFAULT_ZONE = ZoneOffset.UTC.getId();
 	private static final String DEFAULT_USER = "user";
+	private static final String DEFAULT_APP_NAME = "Demo";
 	private static final Properties CONFIG_PROPERTIES = new Properties();
 	static {
 		try {
@@ -41,5 +43,10 @@ public class Config {
 
 	public static String getLocation() {
 		return System.getenv(AZ_LOCATION);
+	}
+
+	public static String getApplicationName() {
+		final String configuredAppName = System.getenv(APP_NAME);
+		return configuredAppName == null ? DEFAULT_APP_NAME : configuredAppName;
 	}
 }

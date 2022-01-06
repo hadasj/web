@@ -17,8 +17,8 @@ public class Greetings {
 			final String user = userParameters != null && userParameters.length > 0 ? userParameters[0] : Config.getUser();
 
 			writer.println("<html><body>");
-			writer.println("<BR/><BR/><BR/><center><H1><B> *** Welcome to " + user +
-					" Demo *** </B></H1></center><BR/><BR/>");
+			writer.println("<BR/><BR/><BR/><center><H1><B> *** Welcome to " + user + " " + Config.getApplicationName() +
+					" *** </B></H1></center><BR/><BR/>");
 			printInfo(writer, serverInfo);
 
 			writer.println("</body></html>");

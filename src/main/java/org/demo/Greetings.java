@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.Map;
 
 public class Greetings {
@@ -35,8 +36,10 @@ public class Greetings {
 
 		writer.println("<B> " + userTime.format(DATE_FORMAT) + " </B><BR/>");
 		writer.println("<B> Application version: " + Config.getVersion() + "</B><BR/>");
+		writer.println("<B> Location: " + Config.getLocation() + "</B><BR/>");
 		writer.println("<B> Server: " + serverInfo + "</B><BR/>");
 		writer.println("<B> Java version: " + System.getProperty("java.version") + "</B><BR/>");
+		writer.println("<B> Locale: " + Locale.getDefault() + "</B><BR/>");
 		writer.println("<B> Operation system: " + System.getProperty("os.name") + " "
 				+ System.getProperty("os.version") + " (" + System.getProperty("os.arch") + ") </B><BR/>");
 		writer.println("<BR/>Implemented by jhadas.");

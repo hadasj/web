@@ -10,6 +10,7 @@ public class Config {
 	private static final String VERSION = "application.version";
 	private static final String TIME_ZONE = "time.zone";
 	private static final String USER = "default.user";
+	private static final String AZ_LOCATION = "AZ_Location";
 	private static final String DEFAULT_ZONE = ZoneOffset.UTC.getId();
 	private static final String DEFAULT_USER = "user";
 	private static final Properties CONFIG_PROPERTIES = new Properties();
@@ -36,5 +37,9 @@ public class Config {
 
 	public static String getUser() {
 		return CONFIG_PROPERTIES.getProperty(USER, DEFAULT_USER);
+	}
+
+	public static String getLocation() {
+		return System.getProperty(AZ_LOCATION);
 	}
 }

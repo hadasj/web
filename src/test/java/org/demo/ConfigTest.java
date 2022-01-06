@@ -31,6 +31,6 @@ public class ConfigTest {
 	public void getVersionTest() {
 		final String version = Config.getVersion();
 		assertNotNull(version);
-		assertEquals("1.3", version);
+		assertEquals("1.4", version);
 	}
 }

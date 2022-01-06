@@ -16,7 +16,8 @@ public class DemoServlet extends HttpServlet {
 	@Override
 	protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws IOException {
 		response.setContentType(CONTENT_TYPE);
-		greetings.printGreetings(response.getWriter(), servletConfig.getServletContext().getServerInfo());
+		greetings.printGreetings(response.getWriter(), servletConfig.getServletContext().getServerInfo(),
+				request.getParameterMap());
 	}
 
 	@Override

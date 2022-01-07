@@ -1,13 +1,21 @@
 <web-app>
 
     <servlet>
-        <servlet-name>demo</servlet-name>
-        <servlet-class>org.demo.DemoServlet</servlet-class>
+        <servlet-name>index</servlet-name>
+        <servlet-class>org.demo.servlet.InfoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>database</servlet-name>
+        <servlet-class>org.demo.servlet.JdbcServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>demo</servlet-name>
+        <servlet-name>index</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>database</servlet-name>
+        <url-pattern>/db</url-pattern>
     </servlet-mapping>
 
 </web-app>

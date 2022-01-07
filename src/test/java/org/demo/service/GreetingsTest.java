@@ -1,9 +1,11 @@
-package org.demo;
+package org.demo.service;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.demo.Config;
+import org.demo.service.Greetings;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -19,7 +21,7 @@ import static org.mockito.Mockito.verify;
 public class GreetingsTest {
 	private static final String SERVER = "Tomcat 9.0.41";
 	private static final String USER = "tester4";
-	private static final int EXPECTED_LINES = 11;
+	private static final int EXPECTED_LINES = 12;
 
 	@Mock
 	private PrintWriter writer;
@@ -38,8 +40,8 @@ public class GreetingsTest {
 
 		verify(writer, times(EXPECTED_LINES)).println(captor.capture());
 
-		assertEquals("Expected greetings with 11 lines of HTML", EXPECTED_LINES, captor.getAllValues().size());
+		assertEquals("Expected greetings with 12 lines of HTML", EXPECTED_LINES, captor.getAllValues().size());
 		assertNotNull(captor.getAllValues().get(3));
-		assertEquals("<B> Application version: 1.5</B><BR/>", captor.getAllValues().get(3));
+		assertEquals("<B> Application version: " + Config.getVersion() + "</B><BR/>", captor.getAllValues().get(3));
 	}
 }

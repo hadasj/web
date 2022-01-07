@@ -1,4 +1,4 @@
-package org.demo;
+package org.demo.service;
 
 import java.io.PrintWriter;
 import java.time.ZoneId;
@@ -6,6 +6,8 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Map;
+
+import org.demo.Config;
 
 public class Greetings {
 	private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss (z)");
@@ -42,6 +44,7 @@ public class Greetings {
 		writer.println("<B> Locale: " + Locale.getDefault() + "</B><BR/>");
 		writer.println("<B> Operation system: " + System.getProperty("os.name") + " "
 				+ System.getProperty("os.version") + " (" + System.getProperty("os.arch") + ") </B><BR/>");
+		writer.println("<A href=\"/db\">Database</A></BR>");
 		writer.println("<BR/>Implemented by jhadas.");
 	}
 }
